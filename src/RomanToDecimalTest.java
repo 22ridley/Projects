@@ -16,6 +16,7 @@ public class RomanToDecimalTest {
      * see if the romanToDecimal method of the RomanToDecimal class
      * works correctly for a vairety of valid, invalid, and illogical
      * inputs
+     * No parameters or return value
      */
     public void romanToDecimal() {
         assertEquals(RomanToDecimal.romanToDecimal("XIV"), 14);
@@ -32,11 +33,11 @@ public class RomanToDecimalTest {
         assertEquals(RomanToDecimal.romanToDecimal("HAHAHA"), -1);
         assertEquals(RomanToDecimal.romanToDecimal("HELLO123"), -1);
         assertEquals(RomanToDecimal.romanToDecimal("HAPPY"), -1);
-        assertEquals(RomanToDecimal.romanToDecimal("HALLOWEEN"), -1);
+        assertEquals(RomanToDecimal.romanToDecimal("HALLOWEEN!"), -1);
 
         /*
         These 'actuals' aren't what my program would actually return,
-        just this RomanToDecimal method, because I check with my
+        just the romanToDecimal method, because I check with my
         decimalToRoman method to make sure that the roman numerals
         inputted are valid Roman Numerals
          */
@@ -46,6 +47,6 @@ public class RomanToDecimalTest {
         assertEquals(RomanToDecimal.romanToDecimal("IC"), 101);
 
         assertNotEquals(RomanToDecimal.romanToDecimal("CDLIX"), -1);
-        assertNotEquals(RomanToDecimal.romanToDecimal("XXXI"), 41);
+        assertNotEquals(RomanToDecimal.romanToDecimal("IXIX"), 18);
     }
 }
