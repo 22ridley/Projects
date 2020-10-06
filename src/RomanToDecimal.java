@@ -3,7 +3,7 @@
  * RomanToDecimal is a class that takes user input of a Roman numeral
  * and outputs that value in decimal form, while also handling invalid
  * character input
- * @version 8/6/20
+ * @version 10/6/20
  * @author 22ridley
  */
 

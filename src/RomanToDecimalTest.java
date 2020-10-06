@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
  * RomanToDecimalTest is a JUnit test class that tests the RomanToDecimal
  * class's method called romanToDecimal with 18 different inputs, some using
  * assertEquals and some using assertNotEquals
- * @version 8/6/20
+ * @version 10/6/20
  * @author 22ridley
  */
 public class RomanToDecimalTest {
