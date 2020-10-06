@@ -120,7 +120,7 @@ public class RomanToDecimal {
     public static void main(String[] args) {
         for (String roman : args) {
             int decimal = romanToDecimal(roman.toUpperCase());
-            System.out.print("Input: " + roman.toUpperCase() + " => output: ");
+            System.out.print("Input: " + roman + " => output: ");
             if (decimal == -1)
                 System.out.println("invalid");
             else {
