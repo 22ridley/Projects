@@ -55,7 +55,7 @@ public class RomanToDecimal {
      * @param decimal A positive integer to be made into a Roman Numeral
      * @return Roman value of decimal input
      */
-    public static String decimalToRoman (int decimal) {
+    private static String decimalToRoman (int decimal) {
         String romanOutput = "";
 
         while (decimal >= 1000) {
@@ -120,11 +120,11 @@ public class RomanToDecimal {
     public static void main(String[] args) {
         for (String roman : args) {
             int decimal = romanToDecimal(roman.toUpperCase());
-            System.out.print("Input: " + roman + " => output: ");
+            System.out.print("Input: " + roman.toUpperCase() + " => output: ");
             if (decimal == -1)
                 System.out.println("invalid");
             else {
-                if (roman.equals(decimalToRoman(decimal)))
+                if (roman.toUpperCase().equals(decimalToRoman(decimal)))
                     System.out.println(decimal);
                 else
                     System.out.println("invalid Roman Numeral");
