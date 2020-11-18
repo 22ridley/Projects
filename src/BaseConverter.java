@@ -61,7 +61,7 @@ public class BaseConverter {
             newDigit = toNew[Integer.parseInt(newDigit)];
             newNum += newDigit;
         }
-        return newNum != "" ? newNum : "0";
+        return newNum.equals("") ? "0" : newNum;
     }
 
     /**
