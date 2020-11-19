@@ -69,7 +69,6 @@ public class BaseConverter {
     public void inputConvertPrintWrite() {
         Scanner in = null;
         PrintWriter pw = null;
-        int baseTen = 0;
         final JFileChooser fc = new JFileChooser();
         // I got the JFileChooser code above and below from Oracle's java tutorials:
         // https://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html
@@ -87,8 +86,7 @@ public class BaseConverter {
                 else if(Integer.parseInt(line[2]) < 2 || Integer.parseInt(line[2]) > 16)
                     System.out.println("Invalid output base " + line[2]);
                 else {
-                    baseTen = strToInt(line[0], line[1]);
-                    newNum = intToStr(baseTen, Integer.parseInt(line[2]));
+                    newNum = intToStr(strToInt(line[0], line[1]), Integer.parseInt(line[2]));
                     System.out.println(line[0] + " base " + line[1] + " = " + newNum + " base " + line[2]);
                     pw.println(line[0] + "\t" + line[1] + "\t" + newNum + "\t" + line[2]);
                 }
