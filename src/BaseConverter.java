@@ -17,7 +17,6 @@ public class BaseConverter {
      */
     public BaseConverter() {
         hex = "0123456789ABCDEF";
-        //not actually changing the default constructor
     }
 
     /**
