@@ -1,4 +1,5 @@
-import java.io.File;
+import javax.swing.*;
+import java.io.*;
 import java.util.Scanner;
 
 /**
@@ -10,10 +11,12 @@ import java.util.Scanner;
  */
 
 public class BaseConverter {
+    String hex;
     /**
      * Constructor for class.
      */
     public BaseConverter() {
+        hex = "0123456789ABCDEF";
         //not actually changing the default constructor
     }
 
@@ -25,13 +28,11 @@ public class BaseConverter {
      */
     public int strToInt(String num, String fromBase) {
         String s;
-        int sum = 0;
-        int digit = 0;
-        String[] fromOld = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
+        int sum = 0, digit = 0;
         for(int i = 0; i < num.length(); i++) {
             s = num.substring(i, i + 1);
-            for(int j = 0; j < fromOld.length; j++) {
-                if(s.equals(fromOld[j])) {
+            for(int j = 0; j < hex.length(); j++) {
+                if(s.equals(hex.substring(j, j+1))) {
                     digit = j;
                     break;
                 }
@@ -52,13 +53,11 @@ public class BaseConverter {
         while(num > Math.pow(toBase, top)) {
             top++;
         }
-        top -= 1;
-        String newDigit = "",newNum = "";
-        String[] toNew = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"};
-        for(int i = top; i >= 0; i--) {
+        String newDigit = "", newNum = "";
+        for(int i = top - 1; i >= 0; i--) {
             newDigit = "" + (int) (num / Math.pow(toBase, i));
             num -= Math.pow(toBase, i) * Integer.parseInt(newDigit);
-            newDigit = toNew[Integer.parseInt(newDigit)];
+            newDigit = hex.substring(Integer.parseInt(newDigit), Integer.parseInt(newDigit) +1);
             newNum += newDigit;
         }
         return newNum.equals("") ? "0" : newNum;
@@ -70,9 +69,16 @@ public class BaseConverter {
      */
     public void inputConvertPrintWrite() {
         Scanner in = null;
+        PrintWriter pw = null;
         int baseTen = 0;
+        final JFileChooser fc = new JFileChooser();
+        // I got the JFileChooser code above and below from Oracle's java tutorials:
+        // https://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html
         try {
-            in = new Scanner(new File("datafiles/values30.dat"));
+            int returnVal = fc.showOpenDialog(null);
+            File file = fc.getSelectedFile();
+            in = new Scanner(new File("" + file));
+            pw = new PrintWriter(new FileWriter("datafiles/converted.dat"));
             String[] line;
             String newNum;
             while (in.hasNext()) {
@@ -85,9 +91,11 @@ public class BaseConverter {
                     baseTen = strToInt(line[0], line[1]);
                     newNum = intToStr(baseTen, Integer.parseInt(line[2]));
                     System.out.println(line[0] + " base " + line[1] + " = " + newNum + " base " + line[2]);
+                    pw.println(line[0] + "\t" + line[1] + "\t" + newNum + "\t" + line[2]);
                 }
             }
             in.close();
+            pw.close();
         }
         catch (Exception e) {
             System.out.println(e);
