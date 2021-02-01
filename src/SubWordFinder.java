@@ -5,6 +5,9 @@ public class SubWordFinder implements WordFinder {
     private ArrayList<ArrayList<String>> dictionary;
     private String alpha;
 
+    /**
+     * Constructor for SubWordFinder class
+     */
     public SubWordFinder() {
         alpha = "abcdefghijklmnopqrstuvwxyz";
         dictionary = new ArrayList<>(alpha.length());
