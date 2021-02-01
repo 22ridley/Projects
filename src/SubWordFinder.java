@@ -1,6 +1,17 @@
 import java.util.*;
 import java.io.*;
 
+/**
+ * SubWordFinder is a class that creates a dictionary of words from a given text file by using 26
+ * buckets, one for each letter, to make it easier to find words. Then, for every word in each bucket,
+ * it word is split in each possible spot to find the subwords contained in the word, and then the
+ * entire subword, including the root word, front word, and back word are added to an ArrayList of
+ * SubWord objects. The most common subwords are then printed, and all the subwords are printed into
+ * sarah_subwords.txt file.
+ * @author 22ridley
+ * @version 02/02/2021
+ */
+
 public class SubWordFinder implements WordFinder {
     private ArrayList<ArrayList<String>> dictionary;
     private String alpha;
@@ -112,7 +123,7 @@ public class SubWordFinder implements WordFinder {
     public void filePrinter(ArrayList<SubWord> arr) {
         PrintWriter pw = null;
         try {
-            pw = new PrintWriter(new FileWriter("subwords/printed.txt"));
+            pw = new PrintWriter(new FileWriter("subwords/sarah_subwords.txt"));
             for (SubWord combo : arr) {
                 pw.println(combo);
             }
