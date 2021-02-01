@@ -18,6 +18,7 @@ public class SubWordFinder implements WordFinder {
 
     /**
      * Constructor for SubWordFinder class
+     * Creates the alpha string, makes a bucket for each letter, and populates the buckets
      */
     public SubWordFinder() {
         alpha = "abcdefghijklmnopqrstuvwxyz";
