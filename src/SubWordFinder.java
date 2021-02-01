@@ -142,33 +142,33 @@ public class SubWordFinder implements WordFinder {
      * (number of combos), increasing its value each time it finds another combo using the root word,
      * then finds the highest number of appearances of any one root word, and prints every root word
      * with that many appearances.
-     * @param subwords An array of SubWords whose root words are counted to see how many  combos they have
+     * @param subwords An array of SubWords whose root words are counted to see how many combos they have
      */
     public void mostSubWords(ArrayList<SubWord> subwords) {
-        HashMap<String, Integer> dict = new HashMap<String, Integer>();
+        HashMap<String, Integer> freqMap = new HashMap<String, Integer>();
         for (int j = 0; j < subwords.size(); j++) {
             String word = subwords.get(j).getRoot();
-            if (dict.containsKey(word)) {
-                int num = dict.get(word);
-                dict.replace(word, num+1);
+            if (freqMap.containsKey(word)) {
+                int num = freqMap.get(word);
+                freqMap.replace(word, num+1);
             }
             else {
-                dict.put(word, 1);
+                freqMap.put(word, 1);
             }
         }
-        int appearances = 0;
+        int frequency = 0;
         System.out.print("The words: ");
-        for (String key : dict.keySet()) {
-            if(dict.get(key) > appearances) {
-                appearances = dict.get(key);
+        for (String key : freqMap.keySet()) {
+            if(freqMap.get(key) > frequency) {
+                frequency = freqMap.get(key);
             }
         }
-        for (String key : dict.keySet()) {
-            if(dict.get(key) == appearances) {
+        for (String key : freqMap.keySet()) {
+            if(freqMap.get(key) == frequency) {
                 System.out.print(key + ", ");
             }
         }
-        System.out.println("can all make " + appearances + " different subword combinations.");
+        System.out.println("can all make " + frequency + " different subword combinations.");
     }
 
     /**
