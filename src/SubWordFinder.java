@@ -100,7 +100,7 @@ public class SubWordFinder implements WordFinder {
         return indexOf(bucket, word, 0, bucket.size() -1) != -1;
     }
 
-    // Recursive indexOf method
+    // Recursive indexOf method, binary searches the correct bucket to find a word
     private int indexOf(ArrayList<String> bucket, String word, int low, int high) {
         int mid = (low+high)/2;
         String item = bucket.get(mid);
