@@ -40,7 +40,7 @@ public class SubWordFinder implements WordFinder {
         Scanner in = null;
         try {
             String word;
-            in = new Scanner(new File("subwords/words_all_os.txt"));
+            in = new Scanner(new File("subwords/new_scrabble.txt"));
             while (in.hasNext()) {
                 word = in.nextLine();
                 dictionary.get(alpha.indexOf(word.charAt(0))).add(word);
@@ -142,6 +142,9 @@ public class SubWordFinder implements WordFinder {
      * (number of combos), increasing its value each time it finds another combo using the root word,
      * then finds the highest number of appearances of any one root word, and prints every root word
      * with that many appearances.
+     *
+     * Here is where I learned how to use a HashMap: https://www.w3schools.com/java/java_hashmap.asp
+     *
      * @param subwords An array of SubWords whose root words are counted to see how many combos they have
      */
     public void mostSubWords(ArrayList<SubWord> subwords) {
@@ -173,10 +176,12 @@ public class SubWordFinder implements WordFinder {
 
     /**
      * Main method for class SubWordFinder
+     * The SubWords are printed to the sarah_subwords.txt file
      * @param args Command line arguments if needed
      */
     public static void main(String[] args) {
         SubWordFinder finder = new SubWordFinder();
         finder.filePrinter(finder.getSubWords());
+        //I do not print the SubWords to the terminal, I print them to a file called sarah_subwords.txt
     }
 }
