@@ -40,7 +40,7 @@ public class SubWordFinder implements WordFinder {
         Scanner in = null;
         try {
             String word;
-            in = new Scanner(new File("subwords/new_scrabble.txt"));
+            in = new Scanner(new File("subwords/words_all_os.txt"));
             while (in.hasNext()) {
                 word = in.nextLine();
                 dictionary.get(alpha.indexOf(word.charAt(0))).add(word);
