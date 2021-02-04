@@ -4,7 +4,7 @@
  * Example:	rootWord is "baseball"
  * 			sub words are "base" + "ball"
  * @author 22ridley
- * @version 02/02/2021
+ * @version 02/05/2021
  */
 
 import java.util.*;

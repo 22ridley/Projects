@@ -9,7 +9,7 @@ import java.io.*;
  * SubWord objects. The most common subwords are then printed, and all the subwords are printed into
  * sarah_subwords.txt file.
  * @author 22ridley
- * @version 02/02/2021
+ * @version 02/05/2021
  */
 
 public class SubWordFinder implements WordFinder {
