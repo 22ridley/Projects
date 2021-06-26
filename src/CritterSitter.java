@@ -22,7 +22,7 @@ public class CritterSitter extends JPanel {
     public void foodPanelSetup() {
         foodPanel = new JPanel();
         foodPanel.setBackground(Color.decode("0x2B2929"));
-        foodPanel.setLayout(new GridLayout(7, 1));
+        foodPanel.setLayout(new GridLayout(10, 1));
 
         homeIcon = new ImageIcon("src/home.png");
         JPanel homePanel = new JPanel();
@@ -45,38 +45,36 @@ public class CritterSitter extends JPanel {
 
         JLabel title1 = new JLabel("<html><p style=\"text-align:left;\">Portion Settings</p></html>", JLabel.LEFT);
         title1.setForeground(Color.decode("0xDFDFDF"));
-        title1.setFont(new Font("SansSerif", Font.BOLD, 30));
+        title1.setFont(new Font("SansSerif", Font.BOLD, 28));
         foodPanel.add(title1);
 
         JPanel amountPanel = new JPanel();
-        amountPanel.setBackground(Color.decode("0x2B2929"));
+        amountPanel.setBackground(Color.decode("0x444040"));
         amountPanel.setLayout(new FlowLayout());//
-        JLabel grams = new JLabel("<html><p style=\"text-align:left;\">Grams (one meal):</p></html>", JLabel.LEFT);
+        JLabel grams = new JLabel("<html><p style=\"margin-left: 7px;\">Grams (one meal):</p></html>", JLabel.LEFT);
         grams.setForeground(Color.decode("0xDFDFDF"));
         grams.setFont(new Font("SansSerif", Font.PLAIN, 16));
         amountPanel.add(grams);
         JPanel enterGramsPanel = new JPanel();
         enterGramsPanel.setLayout(new FlowLayout());
-        enterGramsPanel.setBackground(Color.decode("0x2B2929"));
-        JTextField enterGrams = new JTextField(5);
+        enterGramsPanel.setBackground(Color.decode("0x444040"));
+        JTextField enterGrams = new JTextField("30", 5);
         enterGramsPanel.add(enterGrams);
         amountPanel.add(enterGramsPanel);
-        JLabel filler = new JLabel("                                                 ");
-        filler.setForeground(Color.decode("0x2B2929"));
-        filler.setBackground(Color.decode("0x2B2929"));
+        JLabel filler = new JLabel("                                                    ");
         amountPanel.add(filler);
         foodPanel.add(amountPanel);
 
-        JLabel title2 = new JLabel("<html><p style=\"text-align:left;\">Timer Settings</p></html>", JLabel.LEFT);
+        JLabel title2 = new JLabel("<html><p style=\"text-align:left;\">Schedule Settings</p></html>", JLabel.LEFT);
         title2.setForeground(Color.decode("0xDFDFDF"));
-        title2.setFont(new Font("SansSerif", Font.BOLD, 30));
+        title2.setFont(new Font("SansSerif", Font.BOLD, 28));
         foodPanel.add(title2);
 
         JPanel timerPanel = new JPanel();
-        timerPanel.setBackground(Color.decode("0x2B2929"));
+        timerPanel.setBackground(Color.decode("0x444040"));
         timerPanel.setLayout(new GridLayout(3, 2, 0, 10));
 
-        JLabel freq = new JLabel("<html><p style=\"text-align:left;\">Frequency (per day):</p></html>", JLabel.LEFT);
+        JLabel freq = new JLabel("<html><p style=\"margin-left: 10px;\">Frequency (per day):</p></html>", JLabel.LEFT);
         freq.setForeground(Color.decode("0xDFDFDF"));
         freq.setFont(new Font("SansSerif", Font.PLAIN, 16));
         String[] freqC = { "One","Two", "Three","Four","Five","Six"};
@@ -84,7 +82,7 @@ public class CritterSitter extends JPanel {
         timerPanel.add(freq);
         timerPanel.add(freqChoices);
 
-        JLabel time1 = new JLabel("<html><p style=\"text-align:left;\">First mealtime:</p></html>", JLabel.LEFT);
+        JLabel time1 = new JLabel("<html><p style=\"margin-left: 10px;\">First mealtime:</p></html>", JLabel.LEFT);
         time1.setForeground(Color.decode("0xDFDFDF"));
         time1.setFont(new Font("SansSerif", Font.PLAIN, 16));
         String[] time1C = {"12:00 AM", "1:00 AM","2:00 AM", "3:00 AM","4:00 AM","5:00 AM","6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM","11:00 AM", "12:00 PM","1:00 PM","2:00 PM","3:00 PM", "4:00 PM", "5:00 APM", "6:00 PM", "7:00 PM","8:00 PM", "9:00 PM","10:00 PM","11:00 PM"};
@@ -93,7 +91,7 @@ public class CritterSitter extends JPanel {
         timerPanel.add(time1Choices);
         foodPanel.add(timerPanel);
 
-        JLabel time2 = new JLabel("<html><p style=\"text-align:left;\">Second mealtime:</p></html>", JLabel.LEFT);
+        JLabel time2 = new JLabel("<html><p style=\"margin-left: 10px;\">Second mealtime:</p></html>", JLabel.LEFT);
         time2.setForeground(Color.decode("0xDFDFDF"));
         time2.setFont(new Font("SansSerif", Font.PLAIN, 16));
         String[] time2C = {"12:00 AM", "1:00 AM","2:00 AM", "3:00 AM","4:00 AM","5:00 AM","6:00 AM", "7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM","11:00 AM", "12:00 PM","1:00 PM","2:00 PM","3:00 PM", "4:00 PM", "5:00 APM", "6:00 PM", "7:00 PM","8:00 PM", "9:00 PM","10:00 PM","11:00 PM","12:00 AM"};
@@ -101,6 +99,24 @@ public class CritterSitter extends JPanel {
         timerPanel.add(time2);
         timerPanel.add(time2Choices);
         foodPanel.add(timerPanel);
+
+        JLabel override = new JLabel("<html><p style=\"text-align:left;\">Override Schedule</p></html>", JLabel.LEFT);
+        override.setForeground(Color.decode("0xDFDFDF"));
+        override.setFont(new Font("SansSerif", Font.BOLD, 28));
+        foodPanel.add(override);
+        JPanel overridePanel = new JPanel();
+        overridePanel.setBackground(Color.decode("0x444040"));
+        overridePanel.setLayout(new FlowLayout());
+        JLabel feedNow = new JLabel("<html><p style=\"margin-left: 7px;\">Feed now: </p></html>", JLabel.LEFT);
+        feedNow.setForeground(Color.decode("0xDFDFDF"));
+        feedNow.setFont(new Font("SansSerif", Font.PLAIN, 20));
+        overridePanel.add(feedNow);
+        JButton feedButton = new JButton("●");
+        feedButton.setFont(new Font("SansSerif", Font.PLAIN, 20));
+        overridePanel.add(feedButton);
+        JLabel filler2 = new JLabel("                                                               ");
+        overridePanel.add(filler2);
+        foodPanel.add(overridePanel);
 
         mainFrame.add(foodPanel);
     }
@@ -145,16 +161,17 @@ public class CritterSitter extends JPanel {
         textPanel.setLayout(new GridLayout(3, 1));
 
         JPanel recordPanel = new JPanel();
-        recordPanel.setBackground(Color.decode("0x2B2929"));
+        recordPanel.setBackground(Color.decode("0x444040"));
 
         JLabel record = new JLabel("<html><p style=\"text-align:left;\">Stream your voice:</p></html>", JLabel.LEFT);
         record.setForeground(Color.decode("0xDFDFDF"));
         record.setFont(new Font("SansSerif", Font.PLAIN, 20));
         recordPanel.add(record);
-        JButton recordButton = new JButton("▶");
+        JButton recordButton = new JButton("●");
+        recordButton.setFont(new Font("SansSerif", Font.PLAIN, 20));
         JPanel recordButtonPanel = new JPanel();
         recordButtonPanel.setLayout(new FlowLayout());
-        recordButtonPanel.setBackground(Color.decode("0x2B2929"));
+        recordButtonPanel.setBackground(Color.decode("0x444040"));
         recordButtonPanel.setSize(new Dimension(50, 50));
         recordButton.setSize(new Dimension(50, 50));
         recordButtonPanel.add(recordButton);
@@ -254,8 +271,8 @@ public class CritterSitter extends JPanel {
         imagePanel.setLayout(new GridLayout(2, 2, 0, 5));
 
         JPanel textPanel = new JPanel();
-        textPanel.setBackground(Color.decode("0x2B2929"));
-        textPanel.setLayout(new GridLayout(8, 2, 0, 0));
+        textPanel.setBackground(Color.decode("0x444040"));
+        textPanel.setLayout(new GridLayout(8, 2, 5, 0));
 
         JLabel accountName = new JLabel("<html><p style=\"text-align:center;\">Account Name: <br/>Sarah Ridley</p></html>", JLabel.CENTER);
         accountName.setForeground(Color.decode("0xDFDFDF"));
@@ -273,16 +290,16 @@ public class CritterSitter extends JPanel {
         imagePanel.add(animalProfileLabel);
         imagePanel.add(petName);
 
-        JLabel petType = new JLabel("<html><p style=\"text-align:left;\">Pet type: Cat</p></html>", JLabel.LEFT);
+        JLabel petType = new JLabel("<html><p style=\"margin-left: 10px;\">Pet type: Cat</p></html>", JLabel.LEFT);
         petType.setForeground(Color.decode("0xDFDFDF"));
         petType.setFont(new Font("SansSerif", Font.PLAIN, 15));
         textPanel.add(petType);
 
         JPanel petChooser = new JPanel();
-        petChooser.setBackground(Color.decode("0x2B2929"));
+        petChooser.setBackground(Color.decode("0x444040"));
         petChooser.setLayout(new GridLayout(1, 2));
 
-        JLabel changePet = new JLabel("<html><p style=\"text-align:left;\">Change pet type: </p></html>", JLabel.LEFT);
+        JLabel changePet = new JLabel("<html><p style=\"margin-left: 10px;\">Change pet type: </p></html>", JLabel.LEFT);
         changePet.setForeground(Color.decode("0xDFDFDF"));
         changePet.setFont(new Font("SansSerif", Font.PLAIN, 15));
         petChooser.add(changePet);
@@ -295,19 +312,19 @@ public class CritterSitter extends JPanel {
         petChooser.add(animals);
         textPanel.add(petChooser);
 
-        JLabel date = new JLabel("<html><p style=\"text-align:left;\">Date joined: June 25th, 2021</p></html>", JLabel.LEFT);
+        JLabel date = new JLabel("<html><p style=\"margin-left: 10px;\">Date joined: June 25th, 2021</p></html>", JLabel.LEFT);
         date.setForeground(Color.decode("0xDFDFDF"));
         date.setFont(new Font("SansSerif", Font.PLAIN, 15));
         textPanel.add(date);
-        JLabel email = new JLabel("<html><p style=\"text-align:left;\">Email: 22ridleysk@gmail.com</p></html>", JLabel.LEFT);
+        JLabel email = new JLabel("<html><p style=\"margin-left: 10px;\">Email: 22ridleysk@gmail.com</p></html>", JLabel.LEFT);
         email.setForeground(Color.decode("0xDFDFDF"));
         email.setFont(new Font("SansSerif", Font.PLAIN, 15));
         textPanel.add(email);
-        JLabel num = new JLabel("<html><p style=\"text-align:left;\">Phone number: (984) 439-9739</p></html>", JLabel.LEFT);
+        JLabel num = new JLabel("<html><p style=\"margin-left: 10px;\">Phone number: (984) 439-9739</p></html>", JLabel.LEFT);
         num.setForeground(Color.decode("0xDFDFDF"));
         num.setFont(new Font("SansSerif", Font.PLAIN, 15));
         textPanel.add(num);
-        JLabel Enum = new JLabel("<html><p style=\"text-align:left;\">Emergency contact number: (919) 308-3220</p></html>", JLabel.LEFT);
+        JLabel Enum = new JLabel("<html><p style=\"margin-left: 10px;\">Emergency contact number: (919) 308-3220</p></html>", JLabel.LEFT);
         Enum.setForeground(Color.decode("0xDFDFDF"));
         Enum.setFont(new Font("SansSerif", Font.PLAIN, 15));
         textPanel.add(Enum);
